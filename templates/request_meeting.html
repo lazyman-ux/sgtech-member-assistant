@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="kicker">Request a meeting</div>
+  <h1 style="margin:6px 0 2px">Message to {{ target.name }}</h1>
+  <p class="muted">We&rsquo;ve drafted a personalised request based on your profile and
+     need. Review and edit it, then send. Your chapter manager is copied for visibility.</p>
+
+  <form method="post" action="{{ url_for('send_request') }}">
+    <input type="hidden" name="target_id" value="{{ target.id }}">
+    <input type="hidden" name="need" value="{{ need }}">
+    <label for="message">Your message (AI-drafted &mdash; editable)</label>
+    <textarea id="message" name="message">{{ draft }}</textarea>
+    <div class="actions">
+      <button class="btn" type="submit">Send request</button>
+      <a class="btn secondary" href="{{ url_for('find') }}">Back to matches</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

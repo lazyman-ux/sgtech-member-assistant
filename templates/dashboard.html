@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="kicker">Signed in as a member</div>
+  <h1 style="margin:6px 0">{{ me.name }}</h1>
+  <div class="tags">
+    {% for e in me.expertise %}<span class="tag">{{ e }}</span>{% endfor %}
+    {% for s in me.sectors %}<span class="tag sector">{{ s }}</span>{% endfor %}
+    {% for c in me.countries %}<span class="tag country">{{ c }}</span>{% endfor %}
+  </div>
+  {% if me.chapters %}
+  <p class="muted" style="margin-top:12px">Chapters: {{ me.chapters | join('; ') }}</p>
+  {% endif %}
+</div>
+
+<div class="big-cta">
+  <a class="card cta-card" href="{{ url_for('find') }}">
+    <h3>&#128269; Find partners</h3>
+    <p class="muted">Describe what you need in plain language and get the top 5 matching
+       member companies, each with a reason.</p>
+  </a>
+  <a class="card cta-card" href="{{ url_for('contribute') }}">
+    <h3>&#129309; Find where to contribute</h3>
+    <p class="muted">See chapters, committees and sponsorship opportunities matched to
+       your profile, and express interest in one click.</p>
+  </a>
+  <a class="card cta-card" href="{{ url_for('admin') }}">
+    <h3>&#128202; Staff view</h3>
+    <p class="muted">The secretariat dashboard: number of successful matches and
+       sponsorship leads generated.</p>
+  </a>
+</div>
+{% endblock %}

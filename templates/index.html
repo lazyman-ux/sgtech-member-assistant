@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="hero">
+  <div class="kicker">SGTech &times; AWS &middot; Build with AI</div>
+  <h1>Member Community Assistant</h1>
+  <p>Discover who else is in the SGTech community, find the right partners in plain
+     language, request a meeting, and see where your company can contribute &mdash;
+     all self-serve, no email to the secretariat.</p>
+</div>
+
+<div class="card">
+  <div class="grid">
+    <div class="stat"><div class="n">{{ stats.total_members }}</div><div class="l">Member companies</div></div>
+    <div class="stat"><div class="n">{{ stats.distinct_expertise }}</div><div class="l">Areas of expertise</div></div>
+    <div class="stat"><div class="n">{{ stats.distinct_sectors }}</div><div class="l">Business sectors</div></div>
+    <div class="stat"><div class="n">{{ stats.distinct_chapters }}</div><div class="l">Chapters</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Mock login</h2>
+  <p class="muted">Pick a sample member company to explore the experience as that member.
+     (No real authentication &mdash; this is the hackathon demo login.)</p>
+  <div class="loginlist">
+    {% for m in suggested %}
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="hidden" name="company" value="{{ m.name }}">
+      <button type="submit">
+        <span class="cn">{{ m.name }}</span>
+        <span class="cm">
+          {{ (m.expertise[:2] | join(', ')) if m.expertise else 'Member company' }}
+        </span>
+      </button>
+    </form>
+    {% endfor %}
+  </div>
+
+  <div style="margin-top:16px">
+    <form method="post" action="{{ url_for('login') }}" class="row">
+      <input type="text" name="company" placeholder="&hellip;or type any member company name">
+      <button class="btn" type="submit">Enter as this member</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

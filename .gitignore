@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+data/request_log.json
+.kiro/
+*.zip
+.abhome/
+.abtmp/
+.abrun/
+.chrome-data/
+.chrome-home/
+.capture.py
+.capture2.py
+.probe.py
+.probe.png
+.render_shots.py
