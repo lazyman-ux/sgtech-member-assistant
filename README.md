@@ -1,0 +1,1 @@
+# sgtech-member-assistant
