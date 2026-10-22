@@ -23,6 +23,28 @@ logged in-app, matching the hackathon scope.
 
 ---
 
+## Screenshots
+
+> Previews of each screen, rendered from the **real member data and the actual
+> matching-engine output**. (See `docs/screenshots/` for full-size images.)
+
+**Home / mock login**
+![Home](docs/screenshots/01-home-login.png)
+
+**Member dashboard**
+![Dashboard](docs/screenshots/02-dashboard.png)
+
+**Find partners — ranked matches with "why this match"**
+![Find results](docs/screenshots/04-find-results.png)
+
+**Find where to contribute**
+![Contribute](docs/screenshots/06-contribute.png)
+
+**Staff dashboard — the two success metrics**
+![Admin](docs/screenshots/07-admin-dashboard.png)
+
+---
+
 ## Quick start
 
 ```bash
