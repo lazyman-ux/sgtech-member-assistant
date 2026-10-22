@@ -1,0 +1,21 @@
+{
+  "name": "SGTech Member Community Assistant",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {},
+  "postCreateCommand": "pip install --user -r requirements.txt",
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": {
+      "label": "Member Community Assistant",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  }
+}
