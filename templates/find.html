@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="kicker">Find partners</div>
+  <h1 style="margin:6px 0 2px">Who are you looking for?</h1>
+  <p class="muted">Describe your need in plain language. The assistant interprets it and
+     ranks matching SGTech members.</p>
+  <form method="post" action="{{ url_for('find') }}">
+    <input type="text" name="need" value="{{ need }}" autofocus
+           placeholder="e.g. cybersecurity firms with healthcare clients in Malaysia">
+    <div class="actions">
+      <button class="btn" type="submit">Find matches</button>
+    </div>
+  </form>
+  <div class="examples">
+    Try:
+    <code onclick="fill(this)">AI and data analytics partners</code>
+    <code onclick="fill(this)">fintech software company in Indonesia</code>
+    <code onclick="fill(this)">cybersecurity firms for the government sector</code>
+    <code onclick="fill(this)">IoT hardware manufacturer</code>
+  </div>
+</div>
+
+{% if need %}
+  {% if terms %}
+  <p class="interpreted">Interpreted your need as:
+    {% for t in terms %}<span class="tag">{{ t }}</span>{% endfor %}
+  </p>
+  {% endif %}
+
+  {% if results %}
+    <h2>Top {{ results|length }} matches</h2>
+    {% for r in results %}
+    <div class="result">
+      <div class="row" style="justify-content:space-between">
+        <div class="row">
+          <span class="rank">#{{ loop.index }}</span>
+          <h3>{{ r.member.name }}</h3>
+        </div>
+        <span class="scorepill">match score {{ r.score }}</span>
+      </div>
+      <div class="why">&#128161; <strong>Why this match:</strong> {{ r.reason }}</div>
+      <div class="tags">
+        {% for e in r.member.expertise %}<span class="tag">{{ e }}</span>{% endfor %}
+        {% for s in r.member.sectors %}<span class="tag sector">{{ s }}</span>{% endfor %}
+        {% for c in r.member.countries %}<span class="tag country">{{ c }}</span>{% endfor %}
+      </div>
+      <div class="actions">
+        <form method="post" action="{{ url_for('request_meeting') }}">
+          <input type="hidden" name="target_id" value="{{ r.member.id }}">
+          <input type="hidden" name="need" value="{{ need }}">
+          <button class="btn" type="submit">Request meeting</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="notice">No members matched that need. Try broader terms &mdash; e.g. a
+      single technology ("AI", "cloud") or sector ("healthcare").</div>
+  {% endif %}
+{% endif %}
+
+<script>
+  function fill(el){ document.querySelector('input[name=need]').value = el.textContent; }
+</script>
+{% endblock %}

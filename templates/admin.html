@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="kicker">Staff view &middot; Secretariat &amp; chapter managers</div>
+  <h1 style="margin:6px 0">Community activity dashboard</h1>
+  <p class="muted">Instead of answering every &ldquo;who / how can I&rdquo; enquiry by hand,
+     staff see requests, matches and leads here. These are our two success metrics.</p>
+</div>
+
+<div class="grid">
+  <div class="card stat">
+    <div class="metricbig green">{{ metrics.successful_matches }}</div>
+    <div class="l">Successful matches<br><span class="muted">(accepted / meeting held)</span></div>
+  </div>
+  <div class="card stat">
+    <div class="metricbig gold">{{ metrics.sponsorship_leads }}</div>
+    <div class="l">Sponsorship leads<br><span class="muted">(expressions of interest)</span></div>
+  </div>
+  <div class="card stat">
+    <div class="metricbig" style="color:var(--blue)">{{ metrics.total_requests }}</div>
+    <div class="l">Total meeting requests</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Meeting / collaboration requests</h2>
+  {% if meeting_requests %}
+  <table>
+    <thead><tr><th>#</th><th>From</th><th>To</th><th>Need</th><th>Status</th><th>Advance</th></tr></thead>
+    <tbody>
+      {% for e in meeting_requests %}
+      <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.requester }}</td>
+        <td>{{ e.target }}</td>
+        <td class="muted">{{ e.need }}</td>
+        <td><span class="status {{ e.status }}">{{ e.status.replace('_',' ') }}</span></td>
+        <td>
+          <form method="post" action="{{ url_for('update_status') }}" class="row" style="gap:6px">
+            <input type="hidden" name="entry_id" value="{{ e.id }}">
+            <select name="status">
+              <option value="sent" {{ 'selected' if e.status=='sent' }}>sent</option>
+              <option value="accepted" {{ 'selected' if e.status=='accepted' }}>accepted</option>
+              <option value="meeting_held" {{ 'selected' if e.status=='meeting_held' }}>meeting held</option>
+            </select>
+            <button class="btn secondary" type="submit">Update</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="muted">No requests yet. Sign in as a member and request a meeting to populate this.</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h2>Sponsorship &amp; contribution leads</h2>
+  {% if sponsorship_leads %}
+  <table>
+    <thead><tr><th>#</th><th>Member</th><th>Opportunity</th><th>Owner</th><th>Status</th></tr></thead>
+    <tbody>
+      {% for e in sponsorship_leads %}
+      <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.requester }}</td>
+        <td>{{ e.target }}</td>
+        <td class="muted">{{ e.owner }}</td>
+        <td><span class="status lead">lead</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="muted">No leads yet. Sign in as a member and express interest in an opportunity.</p>
+  {% endif %}
+</div>
+{% endblock %}

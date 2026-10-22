@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SGTech Member Community Assistant{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('index') }}">
+      <span class="logo">SG</span>
+      <span>Member Community Assistant</span>
+    </a>
+    <nav>
+      {% if me %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('find') }}">Find partners</a>
+        <a href="{{ url_for('contribute') }}">Contribute</a>
+        <a href="{{ url_for('admin') }}">Staff view</a>
+        <span class="me">Signed in as <strong>{{ me.name }}</strong></span>
+        <a class="btn-ghost" href="{{ url_for('logout') }}">Log out</a>
+      {% else %}
+        <a href="{{ url_for('admin') }}">Staff view</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="container">
+    {% block body %}{% endblock %}
+  </main>
+  <footer>
+    SGTech &times; AWS &ldquo;Build with AI&rdquo; Hackathon &middot; MVP demo on
+    {{ stats.total_members }} member companies &middot; dummy request log, no live CRM
+  </footer>
+</body>
+</html>

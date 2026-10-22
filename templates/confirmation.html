@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  {% if kind == 'meeting' %}
+    <div class="kicker">Request sent</div>
+    <h1 style="margin:6px 0">&#9989; Meeting request logged</h1>
+    <p>Your request to <strong>{{ entry.target }}</strong> has been recorded with status
+       <span class="status sent">sent</span>. Your chapter manager can see it in the staff view.</p>
+    <div class="notice">In the full product this would notify the target member; here it&rsquo;s
+      logged in-app only (no live email), per the hackathon scope.</div>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('find') }}">Find more partners</a>
+      <a class="btn secondary" href="{{ url_for('admin') }}">View in staff dashboard</a>
+    </div>
+  {% else %}
+    <div class="kicker">Interest registered</div>
+    <h1 style="margin:6px 0">&#9989; Sponsorship lead logged</h1>
+    <p>Thanks! We&rsquo;ve recorded your interest in <strong>{{ entry.target }}</strong> and
+       flagged it as a lead for <strong>{{ entry.owner }}</strong>.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('contribute') }}">See other opportunities</a>
+      <a class="btn secondary" href="{{ url_for('admin') }}">View in staff dashboard</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="kicker">Find where to contribute</div>
+  <h1 style="margin:6px 0 2px">Ways {{ me.name }} can get involved</h1>
+  <p class="muted">Based on your profile, here are the chapters and sponsorship
+     opportunities that fit best. Express interest and we&rsquo;ll log a lead for the
+     owning team.</p>
+</div>
+
+{% for s in suggestions %}
+{% set opp = s.opportunity %}
+<div class="result">
+  <div class="row" style="justify-content:space-between">
+    <h3>{{ opp.name }}</h3>
+    <span class="tag {{ 'sector' if opp.type == 'sponsorship' else '' }}">{{ opp.type }}</span>
+  </div>
+  <p style="margin:6px 0">{{ opp.blurb }}</p>
+  <div class="why">&#128161; <strong>Why this fits:</strong> {{ s.reason }}</div>
+
+  <ul class="muted" style="margin:6px 0">
+    {% for w in opp.ways_to_contribute %}<li>{{ w }}</li>{% endfor %}
+  </ul>
+  {% if opp.type == 'sponsorship' %}
+    <p class="muted" style="font-size:13px">
+      Tier: <strong>{{ opp.tier }}</strong> &middot;
+      Indicative cost: <strong>S${{ '{:,}'.format(opp.indicative_cost_sgd) }}</strong> &middot;
+      Audience: {{ opp.audience }}
+    </p>
+  {% endif %}
+  <p class="muted" style="font-size:13px">Owner: {{ opp.owner }}</p>
+
+  <div class="actions">
+    <form method="post" action="{{ url_for('express_interest') }}">
+      <input type="hidden" name="opportunity_id" value="{{ opp.id }}">
+      <button class="btn gold" type="submit">Express interest</button>
+    </form>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

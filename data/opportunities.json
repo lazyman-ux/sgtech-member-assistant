@@ -1,0 +1,104 @@
+[
+  {
+    "id": "aicdc",
+    "type": "chapter",
+    "name": "AI, Cloud and Data Chapter (AICDC)",
+    "owner": "AICDC Chapter Manager",
+    "blurb": "Shape SGTech's agenda on AI, cloud and data. Join working groups, speak at events, or co-author thought-leadership.",
+    "ways_to_contribute": ["Join a working group", "Speak at a chapter event", "Co-author a whitepaper"],
+    "tags": ["artificial intelligence", "machine learning", "cloud", "data analytics", "data", "software", "it services"]
+  },
+  {
+    "id": "csc",
+    "type": "chapter",
+    "name": "Cyber Security Chapter (CSC)",
+    "owner": "CSC Chapter Manager",
+    "blurb": "Help strengthen Singapore's cyber posture. Contribute to advisories, mentor SMEs, or run a security clinic.",
+    "ways_to_contribute": ["Mentor an SME on security", "Contribute to a cyber advisory", "Run a security clinic"],
+    "tags": ["cybersecurity", "security", "it services", "software"]
+  },
+  {
+    "id": "dcc",
+    "type": "chapter",
+    "name": "Data Centre Chapter (DCC)",
+    "owner": "DCC Chapter Manager",
+    "blurb": "Advance sustainable, high-performance data centre infrastructure and the ecosystem around it.",
+    "ways_to_contribute": ["Join the sustainability task force", "Share infrastructure best practice", "Host a facility tour"],
+    "tags": ["data", "hardware", "iot", "energy & chemicals", "telecommunications"]
+  },
+  {
+    "id": "sec",
+    "type": "chapter",
+    "name": "Singapore Enterprise Chapter (SEC)",
+    "owner": "SEC Chapter Manager",
+    "blurb": "Represent the interests of local tech enterprises and SMEs; help peers scale regionally.",
+    "ways_to_contribute": ["Mentor a growing SME", "Share a go-regional playbook", "Join enterprise roundtables"],
+    "tags": ["consultancy", "software", "it services", "professional services", "fintech"]
+  },
+  {
+    "id": "snc",
+    "type": "chapter",
+    "name": "Smart Nation Chapter (SNC)",
+    "owner": "SNC Chapter Manager",
+    "blurb": "Co-create digital public infrastructure and smart-city solutions with government and industry.",
+    "ways_to_contribute": ["Pilot a smart-city use case", "Join a GovTech co-innovation sprint", "Contribute to a Smart Nation position paper"],
+    "tags": ["iot", "government", "artificial intelligence", "data analytics", "mobile applications"]
+  },
+  {
+    "id": "dxc",
+    "type": "chapter",
+    "name": "Digital Transformation Chapter (DxC)",
+    "owner": "DxC Chapter Manager",
+    "blurb": "Help traditional industries digitalise. Share transformation playbooks and mentor adopters.",
+    "ways_to_contribute": ["Mentor a digitalising SME", "Share a transformation case study", "Join a sector digitalisation group"],
+    "tags": ["consultancy", "software", "manufacturing", "logistics", "retail", "it services"]
+  },
+  {
+    "id": "spon-ai-summit",
+    "type": "sponsorship",
+    "name": "AI & Cloud Summit 2026 — Gold Sponsor",
+    "owner": "Events & Partnerships Team",
+    "blurb": "Flagship AI & cloud conference (~800 attendees). Gold sponsors get a keynote slot, booth and logo placement.",
+    "tier": "Gold",
+    "indicative_cost_sgd": 30000,
+    "audience": "CIOs, CTOs, AI/data leaders",
+    "ways_to_contribute": ["Keynote speaking slot", "Exhibition booth", "Branding & logo placement"],
+    "tags": ["artificial intelligence", "machine learning", "cloud", "data analytics", "software"]
+  },
+  {
+    "id": "spon-cyber-forum",
+    "type": "sponsorship",
+    "name": "Cyber Security Forum — Partner Package",
+    "owner": "Events & Partnerships Team",
+    "blurb": "Half-day CISO forum. Partners get a panel seat, demo table and attendee list access (opt-in).",
+    "tier": "Partner",
+    "indicative_cost_sgd": 12000,
+    "audience": "CISOs, security architects, risk leaders",
+    "ways_to_contribute": ["Panel seat", "Demo table", "Lead-gen (opt-in list)"],
+    "tags": ["cybersecurity", "security", "it services"]
+  },
+  {
+    "id": "spon-sme-bootcamp",
+    "type": "sponsorship",
+    "name": "SME Digitalisation Bootcamp — Enabling Sponsor",
+    "owner": "Enterprise Development Team",
+    "blurb": "Hands-on bootcamp series for SMEs. Enabling sponsors provide tooling credits and mentors, gaining goodwill and pipeline.",
+    "tier": "Enabling",
+    "indicative_cost_sgd": 8000,
+    "audience": "SME owners, operations leaders",
+    "ways_to_contribute": ["Provide tooling credits", "Supply a mentor", "Run a workshop"],
+    "tags": ["consultancy", "software", "professional services", "manufacturing", "retail", "logistics"]
+  },
+  {
+    "id": "spon-smart-nation-expo",
+    "type": "sponsorship",
+    "name": "Smart Nation Expo — Innovation Showcase",
+    "owner": "Events & Partnerships Team",
+    "blurb": "Public-sector-facing expo. Showcase sponsors get a stand in the innovation zone and intros to agency buyers.",
+    "tier": "Showcase",
+    "indicative_cost_sgd": 15000,
+    "audience": "Government agencies, smart-city buyers",
+    "ways_to_contribute": ["Innovation-zone stand", "Agency buyer intros", "Live demo slot"],
+    "tags": ["iot", "government", "artificial intelligence", "data analytics", "mobile applications"]
+  }
+]
